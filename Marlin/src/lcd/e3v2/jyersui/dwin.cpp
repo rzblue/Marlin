@@ -1545,7 +1545,7 @@ void CrealityDWINClass::Menu_Item_Handler(uint8_t menu, uint8_t item, bool draw/
               #endif
             }
             else {
-              sprintf_P(cmd, PSTR("G0 F4000\nG0 Z10\nG0 X%s Y%s\nG0 F300 Z%s"), dtostrf(corner_pos, 1, 3, str_1), dtostrf(corner_pos, 1, 3, str_2), dtostrf(mlev_z_pos, 1, 3, str_3));
+              sprintf_P(cmd, PSTR("G0 F%i\nG0 Z10\nG0 X%s Y%s\nG0 F300 Z%s"), MANUAL_TRAMMING_FEEDRATE, dtostrf(corner_pos, 1, 3, str_1), dtostrf(corner_pos, 1, 3, str_2), dtostrf(mlev_z_pos, 1, 3, str_3));
               gcode.process_subcommands_now(cmd);
               planner.synchronize();
               Redraw_Menu();
@@ -1566,7 +1566,7 @@ void CrealityDWINClass::Menu_Item_Handler(uint8_t menu, uint8_t item, bool draw/
               #endif
             }
             else {
-              sprintf_P(cmd, PSTR("G0 F4000\nG0 Z10\nG0 X%s Y%s\nG0 F300 Z%s"), dtostrf(corner_pos, 1, 3, str_1), dtostrf((Y_BED_SIZE + Y_MIN_POS) - corner_pos, 1, 3, str_2), dtostrf(mlev_z_pos, 1, 3, str_3));
+              sprintf_P(cmd, PSTR("G0 F%i\nG0 Z10\nG0 X%s Y%s\nG0 F300 Z%s"), MANUAL_TRAMMING_FEEDRATE, dtostrf(corner_pos, 1, 3, str_1), dtostrf((Y_BED_SIZE + Y_MIN_POS) - corner_pos, 1, 3, str_2), dtostrf(mlev_z_pos, 1, 3, str_3));
               gcode.process_subcommands_now(cmd);
               planner.synchronize();
               Redraw_Menu();
@@ -1587,7 +1587,7 @@ void CrealityDWINClass::Menu_Item_Handler(uint8_t menu, uint8_t item, bool draw/
               #endif
             }
             else {
-              sprintf_P(cmd, PSTR("G0 F4000\nG0 Z10\nG0 X%s Y%s\nG0 F300 Z%s"), dtostrf((X_BED_SIZE + X_MIN_POS) - corner_pos, 1, 3, str_1), dtostrf((Y_BED_SIZE + Y_MIN_POS) - corner_pos, 1, 3, str_2), dtostrf(mlev_z_pos, 1, 3, str_3));
+              sprintf_P(cmd, PSTR("G0 F%i\nG0 Z10\nG0 X%s Y%s\nG0 F300 Z%s"), MANUAL_TRAMMING_FEEDRATE, dtostrf((X_BED_SIZE + X_MIN_POS) - corner_pos, 1, 3, str_1), dtostrf((Y_BED_SIZE + Y_MIN_POS) - corner_pos, 1, 3, str_2), dtostrf(mlev_z_pos, 1, 3, str_3));
               gcode.process_subcommands_now(cmd);
               planner.synchronize();
               Redraw_Menu();
@@ -1608,7 +1608,7 @@ void CrealityDWINClass::Menu_Item_Handler(uint8_t menu, uint8_t item, bool draw/
               #endif
             }
             else {
-              sprintf_P(cmd, PSTR("G0 F4000\nG0 Z10\nG0 X%s Y%s\nG0 F300 Z%s"), dtostrf((X_BED_SIZE + X_MIN_POS) - corner_pos, 1, 3, str_1), dtostrf(corner_pos, 1, 3, str_2), dtostrf(mlev_z_pos, 1, 3, str_3));
+              sprintf_P(cmd, PSTR("G0 F%i\nG0 Z10\nG0 X%s Y%s\nG0 F300 Z%s"), MANUAL_TRAMMING_FEEDRATE, dtostrf((X_BED_SIZE + X_MIN_POS) - corner_pos, 1, 3, str_1), dtostrf(corner_pos, 1, 3, str_2), dtostrf(mlev_z_pos, 1, 3, str_3));
               gcode.process_subcommands_now(cmd);
               planner.synchronize();
               Redraw_Menu();
@@ -1629,7 +1629,7 @@ void CrealityDWINClass::Menu_Item_Handler(uint8_t menu, uint8_t item, bool draw/
               #endif
             }
             else {
-              sprintf_P(cmd, PSTR("G0 F4000\nG0 Z10\nG0 X%s Y%s\nG0 F300 Z%s"), dtostrf((X_BED_SIZE + X_MIN_POS) / 2.0f, 1, 3, str_1), dtostrf((Y_BED_SIZE + Y_MIN_POS) / 2.0f, 1, 3, str_2), dtostrf(mlev_z_pos, 1, 3, str_3));
+              sprintf_P(cmd, PSTR("G0 F%i\nG0 Z10\nG0 X%s Y%s\nG0 F300 Z%s"), MANUAL_TRAMMING_FEEDRATE, dtostrf((X_BED_SIZE + X_MIN_POS) / 2.0f, 1, 3, str_1), dtostrf((Y_BED_SIZE + Y_MIN_POS) / 2.0f, 1, 3, str_2), dtostrf(mlev_z_pos, 1, 3, str_3));
               gcode.process_subcommands_now(cmd);
               planner.synchronize();
               Redraw_Menu();
