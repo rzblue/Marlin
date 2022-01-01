@@ -116,7 +116,7 @@ constexpr uint8_t epps = ENCODER_PULSES_PER_STEP;
 #endif
 
 #if ENABLED(SOUND_MENU_ITEM)
-  bool MarlinUI::buzzer_enabled = true;
+  bool MarlinUI::buzzer_enabled = false;
 #endif
 
 #if EITHER(PCA9632_BUZZER, USE_BEEPER)
