@@ -1775,8 +1775,8 @@ void CrealityDWINClass::Menu_Item_Handler(uint8_t menu, uint8_t item, bool draw/
 
         auto do_preheat = [](const uint8_t m) {
           thermalManager.cooldown();
-          if (preheatmode == 0 || preheatmode == 1) { ui.preheat_hotend_and_fan(m); }
-          if (preheatmode == 0 || preheatmode == 2) ui.preheat_bed(m);
+          if (preheatmode == 0 || preheatmode == 2) { ui.preheat_hotend_and_fan(m); }
+          if (preheatmode == 0 || preheatmode == 1) ui.preheat_bed(m);
         };
 
         switch (item) {
