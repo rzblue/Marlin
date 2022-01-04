@@ -3093,7 +3093,7 @@
  *
  * Values from 0..1023, -1 to disable homing phase for that axis.
  */
-//#define TMC_HOME_PHASE { 896, 896, 896 }
+#define TMC_HOME_PHASE { 896, 896, 896 }
 
 /**
  * Beta feature!
@@ -3105,7 +3105,7 @@
  * Enable M122 debugging command for TMC stepper drivers.
  * M122 S0/1 will enable continuous reporting.
  */
-//#define TMC_DEBUG
+#define TMC_DEBUG
 
 /**
  * You can set your own advanced settings by filling in predefined functions.
