@@ -1207,7 +1207,7 @@
  *     |    [-]    |
  *     O-- FRONT --+
  */
-#define NOZZLE_TO_PROBE_OFFSET { -45, -8.28, -1.12 }
+#define NOZZLE_TO_PROBE_OFFSET { -45.15, -8.28, -1.12 }
 //M851 X-45.00 Y-20.00 Z0.00
 
 
