@@ -602,14 +602,34 @@
 #if ENABLED(PID_PARAMS_PER_HOTEND)
 // Specify up to one value per hotend here, according to your setup.
     // If there are fewer values, the last one applies to the remaining hotends.
-    #define DEFAULT_Kp_LIST {  21.73,  21.73 }
-    #define DEFAULT_Ki_LIST {   1.54,   1.54 }
-    #define DEFAULT_Kd_LIST {  76.55,  76.55 }
-#else
-#define DEFAULT_Kp  21.73
-#define DEFAULT_Ki   1.54
-#define DEFAULT_Kd  76.55
-#endif
+    #define DEFAULT_Kp_LIST {  28.72,  28.72 }
+    #define DEFAULT_Ki_LIST {   2.62,   2.62 }
+    #define DEFAULT_Kd_LIST {  78.81,  78.81 }
+  #else
+
+    //empirical 200c
+    #define DEFAULT_Kp 33.08
+    #define DEFAULT_Ki 3.68
+    #define DEFAULT_Kd 74.24
+
+    /*
+     * Empirical 230c
+    #define DEFAULT_Kp 28.99
+    #define DEFAULT_Ki 3.24
+    #define DEFAULT_Kd 64.78
+     */
+    /*
+    // Ender 3 v2
+    #define DEFAULT_Kp  28.72
+    #define DEFAULT_Ki   2.62
+    #define DEFAULT_Kd  78.81
+    */
+    /*
+    #define DEFAULT_Kp  23.50 //M301 P23.50 I1.95 D70.66
+    #define DEFAULT_Ki   1.95
+    #define DEFAULT_Kd  70.66
+    */
+  #endif
 #endif // PIDTEMP
 
 //===========================================================================
@@ -941,7 +961,7 @@
  * Override with M92
  *                                      X, Y, Z [, I [, J [, K]]], E0 [, E1[, E2...]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 93 }
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 136 /*93 default*/}
 
 /**
  * Default Max Feed Rate (mm/s)
@@ -1204,7 +1224,8 @@
  *     |    [-]    |
  *     O-- FRONT --+
  */
-#define NOZZLE_TO_PROBE_OFFSET { -44, -7, -1.8 }
+#define NOZZLE_TO_PROBE_OFFSET { -45, -8.28, -1.12 }
+//M851 X-45.00 Y-20.00 Z0.00
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
@@ -1410,7 +1431,7 @@
 #define X_MIN_POS 0
 #define Y_MIN_POS 0
 #define Z_MIN_POS 0
-#define X_MAX_POS X_BED_SIZE + 15
+#define X_MAX_POS X_BED_SIZE + 25 // Extended max to allow the probe to reach more of the bed.
 #define Y_MAX_POS Y_BED_SIZE
 #define Z_MAX_POS 250
 //#define I_MIN_POS 0
