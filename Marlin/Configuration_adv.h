@@ -845,7 +845,7 @@
 
 //#define SENSORLESS_BACKOFF_MM  { 2, 2, 0 }  // (mm) Backoff from endstops before sensorless homing
 
-#define HOMING_BUMP_MM      { 0, 0, 2 }       // (mm) Backoff from endstops after first bump
+#define HOMING_BUMP_MM      { 5, 5, 2 }       // (mm) Backoff from endstops after first bump
 #define HOMING_BUMP_DIVISOR { 2, 2, 4 }       // Re-Bump Speed Divisor (Divides the Homing Feedrate)
 
 //#define HOMING_BACKOFF_POST_MM { 2, 2, 2 }  // (mm) Backoff from endstops after homing
@@ -919,7 +919,7 @@
  *
  * Set the default state here, change with 'M401 S' or UI, use M500 to save, M502 to reset.
  */
-//#define BLTOUCH_HS_MODE true
+#define BLTOUCH_HS_MODE true
 
 // Safety: Enable voltage mode settings in the LCD menu.
 //#define BLTOUCH_LCD_VOLTAGE_MENU
@@ -1440,7 +1440,7 @@
 
 #define SD_MENU_CONFIRM_START             // Confirm the selected SD file before printing
 
-//#define NO_SD_AUTOSTART                 // Remove auto#.g file support completely to save some Flash, SRAM
+#define NO_SD_AUTOSTART                 // Remove auto#.g file support completely to save some Flash, SRAM
 //#define MENU_ADDAUTOSTART               // Add a menu option to run auto#.g files
 
 //#define BROWSE_MEDIA_ON_INSERT          // Open the file browser when media is inserted
@@ -2261,7 +2261,7 @@
 
 // The ASCII buffer for serial input
 #define MAX_CMD_SIZE 96
-#define BUFSIZE 4
+#define BUFSIZE 32
 
 // Transmission to Host Buffer Size
 // To save 386 bytes of PROGMEM (and TX_BUFFER_SIZE+3 bytes of RAM) set to 0.
@@ -2344,7 +2344,7 @@
 #define SERIAL_OVERRUN_PROTECTION
 
 // For serial echo, the number of digits after the decimal point
-//#define SERIAL_FLOAT_PRECISION 4
+#define SERIAL_FLOAT_PRECISION 4
 
 // @section extras
 
@@ -2689,7 +2689,7 @@
 
 #if AXIS_IS_TMC(X)
 #define X_CURRENT       580        // (mA) RMS current. Multiply by 1.414 for peak current.
-#define X_CURRENT_HOME  (X_CURRENT/2)  // (mA) RMS current for sensorless homing
+#define X_CURRENT_HOME  (X_CURRENT)  // (mA) RMS current for sensorless homing
 #define X_MICROSTEPS     16        // 0..256
 #define X_RSENSE          0.11
 #define X_CHAIN_POS      -1        // -1..0: Not chained. 1: MCU MOSI connected. 2: Next in chain, ...
@@ -2709,7 +2709,7 @@
 
 #if AXIS_IS_TMC(Y)
 #define Y_CURRENT       580
-#define Y_CURRENT_HOME  (Y_CURRENT/2)
+#define Y_CURRENT_HOME  (Y_CURRENT)
 #define Y_MICROSTEPS     16
 #define Y_RSENSE          0.11
 #define Y_CHAIN_POS      -1
@@ -3093,7 +3093,7 @@
  *
  * Values from 0..1023, -1 to disable homing phase for that axis.
  */
-#define TMC_HOME_PHASE { 896, 896, 896 }
+#define TMC_HOME_PHASE { 896, 896, -1 }
 
 /**
  * Beta feature!
@@ -3736,14 +3736,14 @@
 /**
  * Auto-report position with M154 S<seconds>
  */
-//#define AUTO_REPORT_POSITION
+#define AUTO_REPORT_POSITION
 
 /**
  * Include capabilities in M115 output
  */
 #define EXTENDED_CAPABILITIES_REPORT
 #if ENABLED(EXTENDED_CAPABILITIES_REPORT)
-//#define M115_GEOMETRY_REPORT
+#define M115_GEOMETRY_REPORT
 #endif
 
 /**
@@ -3791,11 +3791,11 @@
 //#define NO_WORKSPACE_OFFSETS
 
 // Extra options for the M114 "Current Position" report
-//#define M114_DETAIL         // Use 'M114` for details to check planner calculations
+#define M114_DETAIL         // Use 'M114` for details to check planner calculations
 //#define M114_REALTIME       // Real current position based on forward kinematics
 //#define M114_LEGACY         // M114 used to synchronize on every call. Enable if needed.
 
-//#define REPORT_FAN_CHANGE   // Report the new fan speed when changed by M106 (and others)
+#define REPORT_FAN_CHANGE   // Report the new fan speed when changed by M106 (and others)
 
 /**
  * Set the number of proportional font spaces required to fill up a typical character space.
@@ -3969,10 +3969,10 @@
  * Host Prompt Support enables Marlin to use the host for user prompts so
  * filament runout and other processes can be managed from the host side.
  */
-//#define HOST_ACTION_COMMANDS
+#define HOST_ACTION_COMMANDS
 #if ENABLED(HOST_ACTION_COMMANDS)
-//#define HOST_PAUSE_M76
-  //#define HOST_PROMPT_SUPPORT
+  //#define HOST_PAUSE_M76
+  #define HOST_PROMPT_SUPPORT
   //#define HOST_START_MENU_ITEM      // Add a menu item that tells the host to start
   //#define HOST_SHUTDOWN_MENU_ITEM   // Add a menu item that tells the host to shut down
 #endif
